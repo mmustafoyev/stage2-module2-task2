@@ -25,10 +25,10 @@ public class LoginServlet extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession(false);
+        HttpSession session = req.getSession();
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        if(login != null && !password.isBlank()){
+        if(login.length() != 0 && !password.isBlank()){
             session.setAttribute("user" , login);
             resp.sendRedirect("/user/hello.jsp");}
         else
