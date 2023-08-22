@@ -19,7 +19,9 @@ public class LoginServlet extends HttpServlet{
         HttpSession session = req.getSession(false);
         if(session != null && session.getAttribute("user") != null)
             resp.sendRedirect("login.jsp");
-        else
+        else if (req.getParameter("login").isBlank()) {
+            resp.sendRedirect("login.jsp");
+        } else
             resp.sendRedirect("/user/hello.jsp");
     }
 
