@@ -1,6 +1,6 @@
 package com.example.servlet;
 
-import com.example.Users;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +15,7 @@ public class LoginServlet extends HttpServlet{
     //write your code here!
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
         HttpSession session = req.getSession(false);
         if(session != null && session.getAttribute("user") != null)
             resp.sendRedirect("login.jsp");
