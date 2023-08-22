@@ -19,9 +19,7 @@ public class LoginServlet extends HttpServlet{
         HttpSession session = req.getSession(false);
         if(session != null && session.getAttribute("user") != null)
             resp.sendRedirect("login.jsp");
-        else if (req.getParameter("login").isBlank()) {
-            resp.sendRedirect("login.jsp");
-        } else
+        else
             resp.sendRedirect("/user/hello.jsp");
     }
 
@@ -34,7 +32,7 @@ public class LoginServlet extends HttpServlet{
             session.setAttribute("user" , login);
             resp.sendRedirect("/user/hello.jsp");}
         else
-            req.getRequestDispatcher("/login.jsp").forward(req,resp);
+            resp.sendRedirect("/login.jsp");
 
 
     }
